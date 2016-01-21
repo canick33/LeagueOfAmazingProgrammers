@@ -1,0 +1,66 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+/* Declare the ChuckleClicker Class */
+public class ChuckleClicker implements ActionListener {
+	
+	/* Declare the frame for this class */
+	JFrame jFrame;
+	
+	
+	/* Define the method for making the buttons */
+	public void makeButtons() {
+		/* Make a JFrame */
+		jFrame = new JFrame("ChuckleClicker");
+		
+		/* Make the frame visible */
+		jFrame.setVisible(true);
+		
+		/* Set the size of the frame */
+		jFrame.setSize(275, 75);
+		
+		/* Make a JPanel */
+		JPanel jPanel = new JPanel();
+		
+		/* Create two buttons */
+		JButton jokeButton = new JButton("Joke");
+		JButton punchlineButton = new JButton("Punchline");
+		
+		/* Add action listeners to the buttons */
+		jokeButton.addActionListener((ActionListener) this);
+		punchlineButton.addActionListener((ActionListener) this);
+		
+		/* Add the buttons to the panel */
+		jPanel.add(jokeButton);
+		jPanel.add(punchlineButton);
+		
+		/* Add the panel to the frame */
+		jFrame.add(jPanel);
+		
+		/* Pack the buttons on the frame */
+		jFrame.pack();
+		
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		JOptionPane.showMessageDialog(jFrame, "Hi");
+		
+	}
+
+	/* Start the program here */
+	public static void main(String[] args) {
+		/* Create an instance of the ChuckleClicker class */
+		ChuckleClicker chuckleClicker = new ChuckleClicker();
+		
+		/* Call the makeButtons method */
+		chuckleClicker.makeButtons();
+
+	}
+
+}
